@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #2B2730;
+}
+
+.container {
+    position: relative;
+    width: 380px;
+    height: 420px;
+    background-color: rgb(26, 26, 26);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.container::before {
+    content: ' ';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent, transparent, #FBD85D, #FBD85D, #FBD85D);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+
+}
+.container::after {
+    content: ' ';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent, transparent, #A1CCD1, #A1CCD1, #A1CCD1);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+
+}
+.borderline{
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+.borderline::before{
+    content: ' ';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent, transparent, rgb(0, 0, 239), rgb(0, 0, 239), rgb(0, 0, 239));
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -1.5s;
+}
+.borderline::after{
+    content: ' ';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent, transparent, #FBD85D, #FBD85D, #FBD85D);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -4.5s;
+}
+/* for generating the animation */
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container form {
+    position: absolute;
+    inset: 4px;
+    background-color: black;
+    padding: 50px 40px;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.container form h2 {
+    color: aliceblue;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.container form .input_box {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.container form .input_box input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: antiquewhite;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 10;
+}
+
+.user {
+    color: rgb(120, 120, 120);
+    position: absolute;
+    left: 0;
+    padding: 20px 0px 10px;
+    pointer-events: none;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.container form .input_box input:valid~span,
+.container form .input_box input:focus~span {
+    color: white;
+    font-size: 0.75em;
+    transform: translateY(-34px);
+}
+
+.container form .input_box i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.container form .input_box input:valid~i,
+.container form .input_box input:focus~i {
+    height: 44px;
+}
+
+.container form .link {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container form .link a {
+    margin: 10px 0;
+    font-size: 0.75em;
+    text-decoration: none;
+    color: #606C5D;
+}
+
+.container form .link a:hover,
+.container form .link a:nth-child(2) {
+    color: white;
+}
+
+.container form input[type="submit"] {
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.container form input[type="submit"]:active {
+    opacity: 0.8;
+}
